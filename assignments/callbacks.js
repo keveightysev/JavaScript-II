@@ -93,4 +93,27 @@ function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+  let first = {};
+  let unique = [];
+  let j = 0;
+  for (let i = 0; i < array.length; i++){
+    let name = array[i];
+    if (first[name] !== 1) {
+      first[name] = 1;
+      unique[j++] = name;
+    }
+  }
+  return cb(unique);
 }
+
+let names = ['Linda', 'Roberta', 'Richard', 'Lisa', 'Thomas', 'Lori', 'Dora', 'LynDel', 'Linda', 'Janice', 'Jacqueline', 'Sharon', 'Charles', 'LaVern', 'Ronald', 'Rudolph', 'Donald','Richard']
+
+let kevin = ['Kevin', 'Kevin', 'Kevin', 'Kevin', 'Kevin', 'Kevin', 'Kevin']
+
+removeDuplicates(names, function(item){
+  console.log(item);
+});
+
+removeDuplicates(kevin, function(item){
+  console.log(item);
+});
