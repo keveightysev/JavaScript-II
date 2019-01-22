@@ -2,22 +2,59 @@
 
 // let myFunction = function () {};
 
+let myFunction = () => {};
+
 // let anotherFunction = function (param) {
 //   return param;
 // };
+
+let anotherFunction = param => param;
 
 // let add = function (param1, param2) {
 //   return param1 + param2;
 // };
 // add(1,2);
 
+let add = (param1, param2) => param1 + param2;
+console.log(add(1,2));
+
 // let subtract = function (param1, param2) {
 //   return param1 - param2;
 // };
 // subtract(1,2);
 
-// exampleArray = [1,2,3,4];
+let subtract = (param1, param2) => param1 - param2;
+console.log(subtract(1,2));
+
+exampleArray = [1,2,3,4];
 // const triple = exampleArray.map(function (num) {
 //   return num * 3;
 // });
-// console.log(triple);
+
+const triple = exampleArray.map((num) => {return num * 3});
+console.log(triple);
+
+// IIFE experimenting
+let counter = (function () {
+    let count = 0;
+    return {
+        get: function () {
+            return count;
+        },
+        set: function (num) {
+            count = num;
+        },
+        increment: function() {
+            return ++count;
+        },
+        decrement: function() {
+            return --count;
+        }
+    };
+})();
+
+console.log(counter.get());
+console.log(counter.set(2));
+console.log(counter.increment());
+console.log(counter.increment());
+console.log(counter.increment());
