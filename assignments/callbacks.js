@@ -24,24 +24,68 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 function getLength(arr, cb) {
   // getLength passes the length of the array into the callback.
+  return cb(arr.length);
 }
+
+getLength(items, function(arr){
+  console.log(arr);
+});
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
+  return cb(arr[arr.length - 1]);
 }
+
+last(items, function(last){
+  console.log(last);
+});
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
+  const sum = x + y;
+  return cb(sum);
 }
+sumNums(28, 687, function(answer){
+  console.log(answer);
+})
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
+  const product = x * y;
+  return cb(product);
 }
+
+multiplyNums(32, 87, function(answer){
+  console.log(answer);
+});
 
 function contains(item, list, cb) {
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
+  for (let i = 0; i < list.length; i++){
+    if (item === list[i]) {
+      return cb(true);
+    } else {
+      return cb(false);
+    }
+  }
 }
+
+contains('Pencil', items, function(item){
+  if (item === true) {
+    console.log(`That item is in the array`);
+  } else if (item !== true) {
+    console.log(`That item is NOT in the array`);
+  }
+});
+
+contains('bottle', items, function(item){
+  if (item === true) {
+    console.log(`That item is in the array`);
+  } else if (item !== true) {
+    console.log(`That item is NOT in the array`);
+  }
+});
 
 /* STRETCH PROBLEM */
 
